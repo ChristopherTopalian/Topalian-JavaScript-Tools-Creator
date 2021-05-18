@@ -3,6 +3,8 @@ Creates Rows of useful JavaScript Tools and enables easy design of new JS Tools,
 
 We can easily sort the Tools by number, date, category, tag, type, or other.
 
+Video of the Code is Here: https://www.youtube.com/watch?v=-V0f_ZSynf4
+
 https://github.com/ChristopherTopalian
 
 www.youtube.com/ScriptingCollege
