@@ -1,0 +1,494 @@
+<!-- Dedicated to God the Father -->
+
+<!-- All Rights Reserved Christopher Topalian Copyright 2021 -->
+
+<!-- Topalian JavaScript Tools Creator -->
+
+<!-- 
+    Creates Rows of useful Tools and enables easy design of new Tools, which are then placed on any Row chosen, in any order we decide.
+
+    Categories of Tools can be created using the Sorting System,
+    or the person may alternatively choose to create a new array of data, which contains a new set of Tools.
+
+    We can easily sort the Tools by number, date, category, tag, type, or other.
+-->
+
+<!-- 
+    Code is Here:
+    https://github.com/ChristopherTopalian/Topalian-JavaScript-Tools-Creator
+
+    and
+
+    https://github.com/ChristopherTopalian 
+-->
+
+<!-- 
+    Video of the Code is Here:
+    https://www.youtube.com/watch?v=-V0f_ZSynf4
+
+    and
+    
+    www.youtube.com/ScriptingCollege 
+-->
+
+<!-- 
+    Website to find more info about the Code is Here:
+    https://CollegeOfScripting.weebly.com/
+-->
+
+<!-- College of Scripting Music & Science -->
+
+<html>
+     <head>
+         <title> Topalian JavaScript Tools Creator </title>
+
+<style>
+body
+{
+    background-color: rgb(0, 0, 0);
+}
+
+.theTitle
+{
+    position: relative;
+    /* left: 300; */
+    top: 0;
+    color: rgb(255, 255, 255);
+    font-size: 35;
+}
+
+.theDedication
+{
+    position: relative;
+    /* left: 300; */
+    top: 0;
+    color: rgb(255, 255, 255);
+    font-size: 20;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+.ourDivStyle
+{
+    position: relative;
+    /* left: 50; */
+    top: 2;
+    background-color: rgb(100,100,125);
+    width: 100px; /* or 100% for full size of the tools div */
+    /* margin: 0px 2px 0px 2px; */
+    margin: auto;
+    align-content: center;
+    padding: 2px 4px 2px 4px;
+    /* top right bottom left */
+    border: 3px solid rgb(151, 151, 151);
+    font-size: 10pt;
+    font-family: Arial;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px; /* rounded */
+}
+    
+.ourTextStyle
+{
+    border: 3px solid rgb(0,0,0);
+    font-size: 10pt;
+    font-family: Arial;
+    font-weight: bold;
+    color: black;
+    height: 25px;
+    resize: none;
+    text-align: center;
+    width: 75px; /* width of text boxes */
+    overflow: hidden; /* Hide Scrollbars */
+}
+</style>
+
+<script>
+
+//**********************************************//TOOL
+//Website GoTo
+//WGT is this tools namespace to avoid name conflicts
+
+function WGT_goToWebsite(theURL)
+{
+    //Open URL in a New Tab
+    window.open(theURL, "_blank");
+}
+
+let WGT_websites = [
+{
+    name: "Google",
+    url: "https://www.google.com"
+},
+{
+    name: "Weather",
+    url: "https://www.weather.com"
+},
+];
+
+//GOOGLE SEARCH GOOGLE SEARCH
+let WGT_googleSearch = '<html>';
+    WGT_googleSearch += '<head>';
+    WGT_googleSearch += '<title>Google Search</title>';
+    WGT_googleSearch += '</head>';
+    WGT_googleSearch += '<body>';
+    WGT_googleSearch += '<h1>GOOGLE SEARCH</h1>';
+    WGT_googleSearch += '<button onclick="WGT_goToWebsite(WGT_websites[0].url);"> Search </button>';
+    WGT_googleSearch += '</body>';WGT_googleSearch += '</html>';
+
+//**********************************************//
+//WEATHER WEATHER WEATHER
+let WGT_theWeather = '<html>';
+    WGT_theWeather += '<head>';
+    WGT_theWeather += '<title> Weather </title>';
+    WGT_theWeather += '</head>';
+    WGT_theWeather += '<body>';
+    WGT_theWeather += '<h1> WEATHER </h1>';
+    WGT_theWeather += '<button onclick="WGT_goToWebsite(WGT_websites[1].url);"> Search </button>';
+    WGT_theWeather += '</body>';
+    WGT_theWeather += '</html>';
+
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL
+//Year Born From Current Year
+//YBFCY we use this as a namespace, for zero conflicts
+
+//get the current year
+function YBFCY_getYear()
+{
+    let theDate = new Date();
+    let theYear = theDate.getFullYear();
+    return theYear;
+}
+
+//Calculate Year Born Based on Current Year Minus Age Entered
+function YBFCY_ageFinder()
+{
+    //Entered Age of the Person
+    let age = document.getElementById("YBFCY_ageInput").value;
+
+    //Gets the Current Year
+    let currentYear = YBFCY_getYear();
+    
+    //Sets the Year to Current Year
+    document.getElementById("YBFCY_theYearNow").textContent = currentYear;
+    
+    //Result of Subtracting Age from Current Year
+    let currentYearMinusAge = currentYear - age; 
+       
+    //Display Result in the text area called currentYearMinusAge
+    document.getElementById("YBFCY_currentYearMinusAge").textContent = currentYearMinusAge;
+}
+    
+//YBFCY_html is a namespace that means 
+//Year Born From Current Year
+let YBFCY_html = '<html>';
+YBFCY_html += '<head>';
+YBFCY_html += '<title>Year Born From Current Year</title>';
+YBFCY_html += '</head>';
+YBFCY_html += '<body>';
+YBFCY_html += '<div class ="ourDivStyle">';
+YBFCY_html += '<hr>';
+YBFCY_html += 'YEAR BORN FROM CURRENT YEAR';
+YBFCY_html += '<hr>';
+YBFCY_html += 'Enter Age';
+YBFCY_html += '<br>';
+YBFCY_html += '<textarea id="YBFCY_ageInput" placeholder="Enter Age" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFCY_ageFinder();"></textarea>';
+
+YBFCY_html += '<hr>';
+YBFCY_html += 'Current Year is';
+YBFCY_html += '<br>';
+YBFCY_html += '<textarea id="YBFCY_theYearNow" placeholder="Current Year" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFCY_ageFinder();"></textarea>';
+
+YBFCY_html += '<br><hr>';
+YBFCY_html += 'Year Born (est)';
+YBFCY_html += '<br>';
+YBFCY_html += '<textarea id="YBFCY_currentYearMinusAge" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFCY_getYear();"></textarea>';
+YBFCY_html += '<hr>';
+YBFCY_html += '</div>';
+YBFCY_html += '</body>';
+YBFCY_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL
+//Year Born From Specific Year
+//YBFSY we use this as a namespace, for zero conflicts
+
+function YBFSY_ageFinder()
+{
+    //person enters the age
+    let age = document.getElementById("YBFSY_ageInput").value;
+
+    //person enters specific year
+    let specificYear = document.getElementById("YBFSY_yearInput").value;
+       
+    //result of subtracting age from specific year
+    let specificYearMinusAge = specificYear - age; 
+       
+    //display result in text area called specificYearMinusAge
+    document.getElementById("YBFSY_specificYearMinusAge").textContent = specificYearMinusAge;
+}
+    
+//YBFSY_html is a namespace that means 
+//Year Born From Specific Year
+let YBFSY_html = '<html>';
+YBFSY_html += '<head>';
+YBFSY_html += '<title>Year Born From Specific Year</title>';
+YBFSY_html += '</head>';
+YBFSY_html += '<body>';
+YBFSY_html += '<div class ="ourDivStyle">';
+YBFSY_html += '<hr>';
+YBFSY_html += 'YEAR BORN FROM SPECIFIC YEAR';
+YBFSY_html += '<hr>';
+YBFSY_html += 'Enter Age';
+YBFSY_html += '<br>';
+YBFSY_html += '<textarea id="YBFSY_ageInput" placeholder="Enter Age" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFSY_ageFinder();"></textarea>';
+
+YBFSY_html += '<hr>';
+YBFSY_html += 'Specific Year is';
+YBFSY_html += '<br>';
+YBFSY_html += '<textarea id="YBFSY_yearInput" placeholder="Specific Year" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFSY_ageFinder();"></textarea>';
+
+YBFSY_html += '<br><hr>';
+YBFSY_html += 'Year Born (est)';
+YBFSY_html += '<br>';
+YBFSY_html += '<textarea id="YBFSY_specificYearMinusAge" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFSY_ageFinder();"></textarea>';
+YBFSY_html += '<hr>';
+YBFSY_html += '</div>';
+YBFSY_html += '</body>';
+YBFSY_html += '</html>';
+//**********************************************//
+
+
+
+
+
+
+//**********************************************//
+//theData Array
+//the date is optional, for filtering tools by date
+//the number is optional, for filtering tools by number
+
+let theData = [
+{
+    //Website GoTo
+    theHtml: WGT_theWeather, 
+    title: "Website GoTo",
+    tag1: "info", 
+    tag2: "any",
+    date: "04/03/2021 12:00 AM",
+    number: "2",
+    category: "weather",
+    type: "tool",
+},
+{
+    //Website GoTo
+    theHtml: WGT_googleSearch, 
+    title: "Website GoTo",
+    tag1: "info", 
+    tag2: "any",
+    date: "04/03/2015 12:00 AM",
+    number: "1",
+    category: "search",
+    type: "tool"
+},
+{
+    //Year Born From Current Year
+    theHtml: YBFCY_html, 
+    title: "Year Born From Current Year",
+    tag1: "investigations", 
+    tag2: "calculation",
+    date: "04/03/2010 12:00 AM",
+    number: "4",
+    category: "research",
+    type: "tool"
+},
+{
+    //Year Born From Specific Year
+    theHtml: YBFSY_html, 
+    title: "Year Born From Specific Year",
+    tag1: "investigations", 
+    tag2: "calculation",
+    date: "04/03/2008 12:00 AM",
+    number: "3",
+    category: "research",
+    type: "tool"
+}
+];
+//**********************************************//
+
+//SORT by DATE, ascending or descending order
+function sortByDate(whichArray, direction) 
+{
+    if(direction == "up")   // ASCENDING, low to high
+    {
+        whichArray.sort(function(a,b) { return new Date(a.date) - new Date(b.date); } );
+    }
+    else if(direction == "down") //DESCENDING, high to low
+    {
+        whichArray.sort(function(a,b) { return new Date(b.date) - new Date(a.date); } );
+    }
+}
+
+function sortIt()
+{
+    //To Sort theData array we choose one of the options below.
+
+    //To Sort by date - Most Current to Oldest
+    sortByDate(theData, "down"); //Descending
+
+    //To Sort by date - Oldest to Most Current
+    //sortByDate(theData, "up"); //Ascending
+        
+    /*
+    ////To Sort by number in DESCENDING ORDER////
+    //meaning sort from highest to lowest number
+    theData.sort(function(a, b)
+    {
+        return b.number.localeCompare(a.number, 'en-US', {numeric:"true"});
+    });
+    */
+
+    /*
+    ////To Sort by number in ASCENDING ORDER////
+    //meaning sort from lowest to highest number
+    theData.sort(function(a, b)
+    {
+        return a.number.localeCompare(b.number, 'en-US', {numeric:"true"}); 
+    });
+    */
+}
+
+sortIt();
+
+//**********************************************
+
+//DISPLAY the DATA by creating a Row
+function createTheRow(theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2)
+{
+             //used with theData array
+    for(let i = 0; i < whichArray.length; i++)
+    {
+        if(whichArray[i].tag1 == criteria1 || whichArray[i].tag2 == criteria2)
+        {
+            //filter for a MONTH, meaning, SHOW ONLY 1 month
+            //if(whichArray[i].date.substring(0,2) == 3)
+
+            //filter for Multiple MONTHS
+            //if(whichArray[i].date.substring(0,2) == 8 || whichArray[i].date.substring(0,2) == 9)
+
+            //filter for a DATE
+            //if(whichArray[i].date.substring(0,10) == "02/29/2018")
+
+            //filter for a Multiple DATES
+            //if(whichArray[i].date.substring(0,10) == "02/29/2018" || whichArray[i].date.substring(0,10) == "02/29/2020")
+
+            //filter for a DAY, of any month, of any year
+            //if(whichArray[i].date.substring(3,5) == 2)
+
+            //filter for a YEAR
+            //if(whichArray[i].date.substring(6,10) == 2010)
+
+            //filter for MULTIPLE YEARS
+            //if(whichArray[i].date.substring(6,10) == 2019 || whichArray[i].date.substring(6,10) == 2020)
+
+            //filter for MONTH and YEAR
+            //if(whichArray[i].date.substring(0,2) == 2 && whichArray[i].date.substring(6,10) == 2020)
+
+            //You can replace the if statement below,
+            //with one of the options above.
+            if(whichArray) //shows all items
+            {
+                //TYPE OF ELEMENT TO CREATE, div
+                let ourDiv = document.createElement("div");
+
+                //POSITION
+                ourDiv.style.position = "absolute";
+                ourDiv.style.left = theX +'px';
+                ourDiv.style.top = theY + 'px';
+
+                //SIZE
+                ourDiv.style.width = sizeX +'px';
+                ourDiv.style.height = sizeY +'px';
+
+                //APPEARANCE
+                ourDiv.style.color = "white";
+                ourDiv.style.zIndex = "10";
+                ourDiv.style.fontFamily = "exo";
+                ourDiv.style.fontWeight = "bold";
+                ourDiv.style.fontSize = "medium";
+                ourDiv.style.background = "black";
+                ourDiv.style.textAlign = "center";
+                ourDiv.style.border = "solid 2px rgba(100,100,255,1.0)";
+
+                //CONTENT
+                ourDiv.innerHTML = whichArray[i].theHtml;
+
+                //ADD CONTENT TO THE PAGE
+                document.body.append(ourDiv);  
+
+                //COLUMNS ACROSS
+                theX = theX + sizeX; 
+            }
+        }
+    }
+}
+
+//The First Row yPos starts at 80px from the top of the screen
+let yPos = 80; 
+
+//Container for the Rows of Tools and auto positions based on yPos
+function contentContainer1()
+{
+    let theRowsOfTools = 
+    [
+        //CALCULATION ROW
+        function(){ createTheRow(100, yPos, 200, 275, theData, 'investigations', 'calculation') },
+        //theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2
+
+        //INFORMATION ROW
+        function(){ createTheRow(100, yPos, 200, 275, theData, 'info', 'any') },
+        //theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2
+    ];
+
+    //Positions the Rows with 300px vertical space between them
+    for (i = 0; i < theRowsOfTools.length; i++)
+    {
+        theRowsOfTools[i]();
+        yPos = yPos + 300;
+    }
+}
+
+/*
+//Manual Positioning of the Tools can be done as shown below
+function whenLoaded()
+{ 
+    createTheRow(100, 100, 200, 275, theData, 'investigations', 'calculation');
+     //theX, theY, sizeX, sizeY, whichArray, number, criteria1, criteria2
+
+    createTheRow(100, 400, 200, 275, theData, 'info', 'any');
+    //theX, theY, sizeX, sizeY, whichArray, number, criteria1, criteria2
+}
+*/
+
+</script>
+</head>
+
+<body onload = "contentContainer1();">
+
+<center>
+    <div class = "theDedication">Dedicated to God the Father</div>
+    <div class = "theTitle">TOPALIAN JAVASCRIPT TOOLS CREATOR</div>
+</center>
+
+</body>
+</html>
