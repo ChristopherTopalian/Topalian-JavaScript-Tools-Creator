@@ -3,7 +3,7 @@ Creates Rows of useful JavaScript Tools and enables easy design of new JS Tools,
 
 We can easily sort the Tools by number, date, category, tag, type, or other.
 
-Video of the Code is Here: https://www.youtube.com/watch?v=-V0f_ZSynf4
+Video of the Code is Here: https://www.youtube.com/watch?v=jsT408gjqK0
 
 https://github.com/ChristopherTopalian
 
@@ -18,4 +18,5 @@ College of Scripting Music & Science
 
 Christopher Topalian
 
-This first version is kept simple with only 4 tools shown for easy studying. The next version will show many more tools that are very useful for investigators and researchers.
+More Videos on the Project
+https://www.youtube.com/watch?v=-V0f_ZSynf4
