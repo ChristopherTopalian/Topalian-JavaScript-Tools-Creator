@@ -1,0 +1,893 @@
+<!-- Dedicated to God the Father -->
+
+<!-- All Rights Reserved Christopher Topalian Copyright 2021 -->
+
+<!-- Topalian JavaScript Tools Creator -->
+
+<!-- 
+    Creates Rows of useful Tools and enables easy design of new Tools, which are then placed on any Row chosen, in any order we decide.
+
+    Categories of Tools can be created using the Sorting System,
+    or the person may alternatively choose to create a new array of data, which contains a new set of Tools.
+
+    We can easily sort the Tools by number, date, category, tag, type, or other.
+-->
+
+<!-- 
+    Code is Here:
+    https://github.com/ChristopherTopalian/Topalian-JavaScript-Tools-Creator
+
+    and
+
+    https://github.com/ChristopherTopalian 
+-->
+
+<!-- 
+    Video of the Code is Here:
+    www.youtube.com/ScriptingCollege 
+-->
+
+<!-- 
+    Website to find more info about the Code is Here:
+    https://CollegeOfScripting.weebly.com/
+-->
+
+<!-- College of Scripting Music & Science -->
+
+<html>
+<head>
+<title> Topalian JavaScript Tools Creator </title>
+
+<style>
+body
+{
+    /* background-color: rgb(0, 0, 0); */
+
+    background-image: url("https://collegeofscripting.weebly.com/uploads/6/4/4/8/64482293/stars-nice-edited_orig.png");   
+}
+
+.theTitle
+{
+    position: relative;
+    /* left: 300; */
+    top: 0;
+    color: rgb(255, 255, 255);
+    /* letter-spacing: 1px; */
+    font-size: 35;
+    font-weight: bolder;
+    font-family: "Exo Black", Tahoma, Arial;
+    /* We use Quotation Marks, if the font name contains a space */
+}
+
+.theDedication
+{
+    position: relative;
+    /* left: 300; */
+    top: 0;
+    color: rgb(255, 255, 255);
+    font-size: 20;
+    font-weight: bold;
+    font-family: Tahoma, Arial;
+}
+
+.ourDivStyle
+{
+    position: relative;
+    /* left: 50; */
+    top: 2;
+    background-color: rgb(100,100,125);
+    width: 100px; /* or 100% for full size of the tools div */
+    /* margin: 0px 2px 0px 2px; */
+    margin: auto;
+    align-content: center;
+    padding: 2px 4px 2px 4px;
+    /* top right bottom left */
+    border: 3px solid rgb(151, 151, 151);
+    font-size: 10pt;
+    font-family: Arial;
+    font-weight: bold;
+    color: white;
+    border-radius: 5px; /* rounded */
+}
+    
+.ourTextStyle
+{
+    border: 3px solid rgb(0,0,0);
+    font-size: 10pt;
+    font-family: Arial;
+    font-weight: bold;
+    color: black;
+    height: 25px;
+    resize: none;
+    text-align: center;
+    width: 75px; /* width of text boxes */
+    overflow: hidden; /* Hide Scrollbars */
+}
+</style>
+
+<script>
+
+//**********************************************//TOOL
+//Website GoTo
+//WGT is this tools namespace to avoid name conflicts
+
+function WGT_goToWebsite(theURL)
+{
+    //Open URL in a New Tab
+    window.open(theURL, "_blank");
+}
+
+let WGT_websites = [
+{
+    name: "Google",
+    url: "https://www.google.com"
+},
+{
+    name: "Weather",
+    url: "https://www.weather.com"
+},
+{
+    name: "Space Weather",
+    url: "https://www.spaceweather.com"
+}
+];
+
+//GOOGLE SEARCH GOOGLE SEARCH
+let WGT_googleSearch = '<html>';
+    WGT_googleSearch += '<head>';
+    WGT_googleSearch += '<title>Google Search</title>';
+    WGT_googleSearch += '</head>';
+    WGT_googleSearch += '<body>';
+    WGT_googleSearch += '<div>';
+    WGT_googleSearch += '<hr>';
+    WGT_googleSearch += '<button onclick="WGT_goToWebsite(WGT_websites[0].url);"> GoTo </button>';
+    WGT_googleSearch += '<hr>';
+    WGT_googleSearch += '<h2>GOOGLE<br>SEARCH</h2>';
+    WGT_googleSearch += '</div>';
+    WGT_googleSearch += '</body>';
+    WGT_googleSearch += '</html>';
+
+//**********************************************//
+//WEATHER WEATHER WEATHER
+let WGT_theWeather = '<html>';
+    WGT_theWeather += '<head>';
+    WGT_theWeather += '<title> Weather </title>';
+    WGT_theWeather += '</head>';
+    WGT_theWeather += '<div>';
+    WGT_theWeather += '<body>';
+    WGT_theWeather += '<hr>';
+    WGT_theWeather += '<button onclick="WGT_goToWebsite(WGT_websites[1].url);"> GoTo </button>';
+    WGT_theWeather += '<hr>';
+    WGT_theWeather += '<h2> WEATHER </h2>';
+    WGT_theWeather += '</div>';
+    WGT_theWeather += '</body>';
+    WGT_theWeather += '</html>';
+
+//**********************************************//
+//SPACE WEATHER SPACE WEATHER
+let WGT_spaceWeather = '<html>';
+    WGT_spaceWeather += '<head>';
+    WGT_spaceWeather += '<title> Space Weather </title>';
+    WGT_spaceWeather += '</head>';
+    WGT_spaceWeather += '<div>';
+    WGT_spaceWeather += '<body>';
+    WGT_spaceWeather += '<hr>';
+    WGT_spaceWeather += '<button onclick="WGT_goToWebsite(WGT_websites[2].url);"> GoTo </button>';
+    WGT_spaceWeather += '<hr>';
+    WGT_spaceWeather += '<h2> SPACE<br>WEATHER </h2>';
+    WGT_spaceWeather += '</div>';
+    WGT_spaceWeather += '</body>';
+    WGT_spaceWeather += '</html>';
+
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL
+//Year Born From Current Year
+//YBFCY we use this as a namespace, for zero conflicts
+
+//Get the current year
+function YBFCY_getYear()
+{
+    let theDate = new Date();
+    let theYear = theDate.getFullYear();
+    return theYear;
+}
+
+//Calculate Year Born Based on Current Year Minus Age Entered
+function YBFCY_ageFinder()
+{
+    let nameSpace = "YBFCY_";
+
+    //person enters the age
+    //we get the age value from the text area that has the id of nameSpace_AgeInput
+    let age = document.getElementById(nameSpace + "AgeInput").value;
+
+    //gets the Current Year
+    let currentYear = YBFCY_getYear();
+    
+    //display the Current Year in the text area that has the id of nameSpace_TheYearNow
+    document.getElementById(nameSpace + "TheYearNow").textContent = currentYear;
+    
+    //result of Subtracting Age from Current Year
+    let result = currentYear - age; 
+       
+    //display Result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let YBFCY_html = '<html>';
+YBFCY_html += '<head>';
+YBFCY_html += '<title>Year Born From Current Year</title>';
+YBFCY_html += '</head>';
+YBFCY_html += '<body>';
+YBFCY_html += '<div class ="ourDivStyle">';
+YBFCY_html += '<hr>';
+YBFCY_html += 'YEAR BORN FROM CURRENT YEAR';
+YBFCY_html += '<hr>';
+YBFCY_html += 'Enter Age';
+YBFCY_html += '<br>';
+YBFCY_html += '<textarea id="YBFCY_AgeInput" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFCY_ageFinder();"></textarea>';
+
+YBFCY_html += '<hr>';
+YBFCY_html += 'Current Year is';
+YBFCY_html += '<br>';
+YBFCY_html += '<textarea id="YBFCY_TheYearNow" placeholder="Current Year" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFCY_ageFinder();" readonly></textarea>';
+
+YBFCY_html += '<br><hr>';
+YBFCY_html += 'Year Born (est)';
+YBFCY_html += '<br>';
+YBFCY_html += '<textarea id="YBFCY_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFCY_getYear();" readonly></textarea>';
+YBFCY_html += '<hr>';
+YBFCY_html += '</div>';
+YBFCY_html += '</body>';
+YBFCY_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL
+//Year Born From Specific Year
+//YBFSY we use this as a namespace, for zero conflicts
+
+function YBFSY_ageFinder()
+{
+    let nameSpace = "YBFSY_";
+
+    //person enters the age
+    //we get the age value from the text area that has the id of nameSpace_AgeInput
+    let age = document.getElementById(nameSpace + "AgeInput").value;
+
+    //person enters specific year
+    let specificYear = document.getElementById(nameSpace + "YearInput").value;
+       
+    //result of subtracting age from specific year
+    let result = specificYear - age; 
+       
+    //display Result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let YBFSY_html = '<html>';
+YBFSY_html += '<head>';
+YBFSY_html += '<title>Year Born From Specific Year</title>';
+YBFSY_html += '</head>';
+YBFSY_html += '<body>';
+YBFSY_html += '<div class ="ourDivStyle">';
+YBFSY_html += '<hr>';
+YBFSY_html += 'YEAR BORN FROM SPECIFIC YEAR';
+YBFSY_html += '<hr>';
+YBFSY_html += 'Enter Age';
+YBFSY_html += '<br>';
+YBFSY_html += '<textarea id="YBFSY_AgeInput" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFSY_ageFinder();"></textarea>';
+
+YBFSY_html += '<hr>';
+YBFSY_html += 'Specific Year is';
+YBFSY_html += '<br>';
+YBFSY_html += '<textarea id="YBFSY_YearInput" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFSY_ageFinder();"></textarea>';
+
+YBFSY_html += '<br><hr>';
+YBFSY_html += 'Year Born (est)';
+YBFSY_html += '<br>';
+YBFSY_html += '<textarea id="YBFSY_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="YBFSY_ageFinder();" readonly></textarea>';
+YBFSY_html += '<hr>';
+YBFSY_html += '</div>';
+YBFSY_html += '</body>';
+YBFSY_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL - CONVERSION
+//Convert Feet To Meter
+//CFTM_ we use this as a namespace, for zero conflicts
+
+function CFTM_convert()
+{
+    let nameSpace = "CFTM_";
+    let conversionFactor = 0.3048;
+
+    //person enters the amount. 
+    //we get the amount from the text area with the id nameSpace_Input
+    let amount = document.getElementById(nameSpace + "Input").value;
+       
+    //result of multiplying the amount entered by the conversionFactor
+    let result = amount * conversionFactor;
+       
+    //display result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let CFTM_html = '<html>';
+CFTM_html += '<head>';
+CFTM_html += '<title>Convert Feet To Meter</title>';
+CFTM_html += '</head>';
+CFTM_html += '<body>';
+CFTM_html += '<div class ="ourDivStyle">';
+CFTM_html += '<hr>';
+CFTM_html += 'CONVERT FEET TO METER';
+CFTM_html += '<hr>';
+CFTM_html += 'Enter Feet';
+CFTM_html += '<br>';
+CFTM_html += '<textarea id="CFTM_Input" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CFTM_convert();"></textarea>';
+
+CFTM_html += '<br><hr>';
+CFTM_html += 'Meters (est)';
+CFTM_html += '<br>';
+CFTM_html += '<textarea id="CFTM_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" readonly></textarea>';
+CFTM_html += '<hr>';
+CFTM_html += '</div>';
+CFTM_html += '</body>';
+CFTM_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL - CONVERSION
+//Convert Meter To Feet
+//CMTF_ we use this as a namespace, for zero conflicts
+
+function CMTF_convert()
+{
+    let nameSpace = "CMTF_";
+    let conversionFactor = 3.28084;
+ 
+    //person enters the amount
+    //we get the amount from the text area with the id nameSpace_Input
+    let amount = document.getElementById(nameSpace + "Input").value;
+       
+    //result of multiplying the amount entered by the conversionFactor
+    let result = amount * conversionFactor;
+       
+    //display result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let CMTF_html = '<html>';
+CMTF_html += '<head>';
+CMTF_html += '<title>Convert Meter To Feet</title>';
+CMTF_html += '</head>';
+CMTF_html += '<body>';
+CMTF_html += '<div class ="ourDivStyle">';
+CMTF_html += '<hr>';
+CMTF_html += 'CONVERT METER TO FEET';
+CMTF_html += '<hr>';
+CMTF_html += 'Enter Meter';
+CMTF_html += '<br>';
+CMTF_html += '<textarea id="CMTF_Input" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMTF_convert();"></textarea>';
+
+CMTF_html += '<br><hr>';
+CMTF_html += 'Feet (est)';
+CMTF_html += '<br>';
+CMTF_html += '<textarea id="CMTF_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMTF_convert();" readonly></textarea>';
+CMTF_html += '<hr>';
+CMTF_html += '</div>';
+CMTF_html += '</body>';
+CMTF_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL - CONVERSION
+//Convert Meter To Mile
+//CMTMI we use this as a namespace, for zero conflicts
+
+function CMTMI_convert()
+{
+    let nameSpace = "CMTMI_";
+    let conversionFactor = 0.000621371;
+
+    //person enters the amount
+    //we get the amount from the text area with the id nameSpace_Input
+    let amount = document.getElementById(nameSpace + "Input").value;
+       
+    //result of multiplying the amount entered by the conversionFactor
+    let result = amount * conversionFactor;
+       
+    //display result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let CMTMI_html = '<html>';
+CMTMI_html += '<head>';
+CMTMI_html += '<title>Convert Meter To Mile</title>';
+CMTMI_html += '</head>';
+CMTMI_html += '<body>';
+CMTMI_html += '<div class ="ourDivStyle">';
+CMTMI_html += '<hr>';
+CMTMI_html += 'CONVERT METER TO MILE';
+CMTMI_html += '<hr>';
+CMTMI_html += 'Enter Meters';
+CMTMI_html += '<br>';
+CMTMI_html += '<textarea id="CMTMI_Input" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMTMI_convert();"></textarea>';
+
+CMTMI_html += '<br><hr>';
+CMTMI_html += 'Miles (est)';
+CMTMI_html += '<br>';
+CMTMI_html += '<textarea id="CMTMI_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMTMI_convert();" readonly></textarea>';
+CMTMI_html += '<hr>';
+CMTMI_html += '</div>';
+CMTMI_html += '</body>';
+CMTMI_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL - CONVERSION
+//Convert Mile To Meter
+//CMITM_ we use this as a namespace, for zero conflicts
+
+function CMITM_convert()
+{
+    let nameSpace = "CMITM_";
+    let conversionFactor = 1609.344;
+
+    //person enters the amount
+    //we get the amount from the text area with the id nameSpace_Input
+    let amount = document.getElementById(nameSpace + "Input").value;
+       
+    //result of multiplying the amount entered by the conversionFactor
+    let result = amount * conversionFactor;
+       
+    //display result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let CMITM_html = '<html>';
+CMITM_html += '<head>';
+CMITM_html += '<title>Convert Mile To Meter</title>';
+CMITM_html += '</head>';
+CMITM_html += '<body>';
+CMITM_html += '<div class ="ourDivStyle">';
+CMITM_html += '<hr>';
+CMITM_html += 'CONVERT MILE TO METER';
+CMITM_html += '<hr>';
+CMITM_html += 'Enter Miles';
+CMITM_html += '<br>';
+CMITM_html += '<textarea id="CMITM_Input" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMITM_convert();"></textarea>';
+
+CMITM_html += '<br><hr>';
+CMITM_html += 'Meters (est)';
+CMITM_html += '<br>';
+CMITM_html += '<textarea id="CMITM_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMITM_convert();" readonly></textarea>';
+CMITM_html += '<hr>';
+CMITM_html += '</div>';
+CMITM_html += '</body>';
+CMITM_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL - CONVERSION
+//Convert Mph to Kph (Miles per hour to Kilometers per hour)
+//CMphToKph_ we use this as a namespace, for zero conflicts
+
+function CMphToKph_convert()
+{
+    let nameSpace = "CMphToKph_";
+    let conversionFactor = 1.60934;
+
+    //person enters the amount
+    //we get the amount from the text area with the id nameSpace_Input
+    let amount = document.getElementById(nameSpace + "Input").value;
+       
+    //result of multiplying the amount entered by the conversionFactor
+    let result = amount * conversionFactor;
+       
+    //display result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let CMphToKph_html = '<html>';
+CMphToKph_html += '<head>';
+CMphToKph_html += '<title>Convert Mph to Kph</title>';
+CMphToKph_html += '</head>';
+CMphToKph_html += '<body>';
+CMphToKph_html += '<div class ="ourDivStyle">';
+CMphToKph_html += '<hr>';
+CMphToKph_html += 'CONVERT<br>MPH TO KPH';
+CMphToKph_html += '<hr>';
+CMphToKph_html += 'Enter Mph';
+CMphToKph_html += '<br>';
+CMphToKph_html += '<textarea id="CMphToKph_Input" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMphToKph_convert();"></textarea>';
+
+CMphToKph_html += '<br><hr>';
+CMphToKph_html += 'Kph (est)';
+CMphToKph_html += '<br>';
+CMphToKph_html += '<textarea id="CMphToKph_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CMphToKph_convert();" readonly></textarea>';
+CMphToKph_html += '<hr>';
+CMphToKph_html += '</div>';
+CMphToKph_html += '</body>';
+CMphToKph_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//TOOL - CONVERSION
+//Convert Kph to Mph (Kilometers per hour to Miles per Hour)
+//CKphToMph_ we use this as a namespace, for zero conflicts
+
+function CKphToMph_convert()
+{
+    let nameSpace = "CKphToMph_";
+    let conversionFactor = 0.621371;
+
+    //person enters the amount
+    //we get the amount from the text area with the id nameSpace_Input
+    let amount = document.getElementById(nameSpace + "Input").value;
+       
+    //result of multiplying the amount entered by the conversionFactor
+    let result = amount * conversionFactor;
+       
+    //display result in the text area that has the id of nameSpace_Result
+    document.getElementById(nameSpace + "Result").textContent = result;
+}
+
+let CKphToMph_html = '<html>';
+CKphToMph_html += '<head>';
+CKphToMph_html += '<title>Convert Kph to Mph</title>';
+CKphToMph_html += '</head>';
+CKphToMph_html += '<body>';
+CKphToMph_html += '<div class ="ourDivStyle">';
+CKphToMph_html += '<hr>';
+CKphToMph_html += 'CONVERT<br>KPH TO MPH';
+CKphToMph_html += '<hr>';
+CKphToMph_html += 'Enter Kph';
+CKphToMph_html += '<br>';
+CKphToMph_html += '<textarea id="CKphToMph_Input" placeholder="Enter" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CKphToMph_convert();"></textarea>';
+
+CKphToMph_html += '<br><hr>';
+CKphToMph_html += 'Mph (est)';
+CKphToMph_html += '<br>';
+CKphToMph_html += '<textarea id="CKphToMph_Result" placeholder="Result" rows="1" cols="7" class="ourTextStyle" type="text" onkeyup="CKphToMph_convert();" readonly></textarea>';
+CKphToMph_html += '<hr>';
+CKphToMph_html += '</div>';
+CKphToMph_html += '</body>';
+CKphToMph_html += '</html>';
+//**********************************************//
+
+
+
+
+
+//**********************************************//
+//theData Array
+//the date is optional, for filtering tools by date
+//the number is optional, for filtering tools by number
+
+let theData = [
+{
+    //Website GoTo
+    theHtml: WGT_googleSearch, 
+    title: "Google Search",
+    tag1: "info", 
+    tag2: "any",
+    date: "04/03/2021 12:00 AM",
+    number: "1",
+    category: "search",
+    type: "tool"
+},
+{
+    //Website GoTo
+    theHtml: WGT_theWeather, 
+    title: "Weather",
+    tag1: "info", 
+    tag2: "any",
+    date: "04/03/2020 12:00 AM",
+    number: "2",
+    category: "weather",
+    type: "tool",
+},
+{
+    //Website GoTo
+    theHtml: WGT_spaceWeather, 
+    title: "Space Weather",
+    tag1: "info", 
+    tag2: "any",
+    date: "04/03/2019 12:00 AM",
+    number: "3",
+    category: "search",
+    type: "tool"
+},
+{
+    //Year Born From Current Year
+    theHtml: YBFCY_html, 
+    title: "Year Born From Current Year",
+    tag1: "calculation", 
+    tag2: "investigations",
+    date: "04/03/2010 12:00 AM",
+    number: "1",
+    category: "research",
+    type: "tool"
+},
+{
+    //Year Born From Specific Year
+    theHtml: YBFSY_html, 
+    title: "Year Born From Specific Year",
+    tag1: "calculation", 
+    tag2: "investigations",
+    date: "04/03/2008 12:00 AM",
+    number: "2",
+    category: "research",
+    type: "tool"
+},
+{
+    //Convert Feet To Meters
+    theHtml: CFTM_html, 
+    title: "Convert Feet To Meters",
+    tag1: "conversion", 
+    tag2: "distance",
+    date: "04/03/2001 12:00 AM",
+    number: "1",
+    category: "research",
+    type: "tool"
+},
+{
+    //Convert Meters To Feet
+    theHtml: CMTF_html, 
+    title: "Convert Meters To Feet",
+    tag1: "conversion", 
+    tag2: "distance",
+    date: "04/03/2000 12:00 AM",
+    number: "2",
+    category: "research",
+    type: "tool"
+},
+{
+    //Convert Meter To Mile
+    theHtml: CMTMI_html, 
+    title: "Convert Meter To Mile",
+    tag1: "conversion", 
+    tag2: "distance",
+    date: "04/03/1998 12:00 AM",
+    number: "3",
+    category: "research",
+    type: "tool"
+},
+{
+    //Convert Mile To Meter
+    theHtml: CMITM_html, 
+    title: "Convert Mile To Meter",
+    tag1: "conversion", 
+    tag2: "distance",
+    date: "04/03/1996 12:00 AM",
+    number: "4",
+    category: "research",
+    type: "tool"
+},
+{
+    //Convert Mph to Kph
+    theHtml: CMphToKph_html, 
+    title: "Convert Mph to Kph",
+    tag1: "conversion", 
+    tag2: "speed",
+    date: "04/03/1995 12:00 AM",
+    number: "1",
+    category: "research",
+    type: "tool"
+},
+{
+    //Convert Kph to Mph
+    theHtml: CKphToMph_html, 
+    title: "Convert Kph to Mph",
+    tag1: "conversion", 
+    tag2: "speed",
+    date: "04/03/1994 12:00 AM",
+    number: "2",
+    category: "research",
+    type: "tool"
+}
+];
+//**********************************************//
+
+//SORT by DATE, ascending or descending order
+function sortByDate(whichArray, direction) 
+{
+    if(direction == "up")  //ASCENDING, low to high
+    {
+        whichArray.sort(function(a,b) { return new Date(a.date) - new Date(b.date); } );
+    }
+    else if(direction == "down") //DESCENDING, high to low
+    {
+        whichArray.sort(function(a,b) { return new Date(b.date) - new Date(a.date); } );
+    }
+}
+
+function sortIt()
+{
+    //To Sort theData array we choose one of the options below.
+
+    //To Sort by date - Most Current to Oldest
+    sortByDate(theData, "down"); //Descending
+
+    //To Sort by date - Oldest to Most Current
+    //sortByDate(theData, "up"); //Ascending
+        
+    /*
+    ////To Sort by number in DESCENDING ORDER////
+    //meaning sort from highest to lowest number
+    theData.sort(function(a, b)
+    {
+        return b.number.localeCompare(a.number, 'en-US', {numeric:"true"});
+    });
+    */
+
+    /*
+    ////To Sort by number in ASCENDING ORDER////
+    //meaning sort from lowest to highest number
+    theData.sort(function(a, b)
+    {
+        return a.number.localeCompare(b.number, 'en-US', {numeric:"true"}); 
+    });
+    */
+}
+
+sortIt();
+
+//**********************************************
+
+//DISPLAY the DATA by creating a Row
+function createTheRow(theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2)
+{
+             //used with theData array
+    for(let i = 0; i < whichArray.length; i++)
+    {
+        if(whichArray[i].tag1 == criteria1 && whichArray[i].tag2 == criteria2)
+        {
+            //filter for a MONTH, meaning, SHOW ONLY 1 month
+            //if(whichArray[i].date.substring(0,2) == 3)
+
+            //filter for Multiple MONTHS
+            //if(whichArray[i].date.substring(0,2) == 8 || whichArray[i].date.substring(0,2) == 9)
+
+            //filter for a DATE
+            //if(whichArray[i].date.substring(0,10) == "02/29/2018")
+
+            //filter for a Multiple DATES
+            //if(whichArray[i].date.substring(0,10) == "02/29/2018" || whichArray[i].date.substring(0,10) == "02/29/2020")
+
+            //filter for a DAY, of any month, of any year
+            //if(whichArray[i].date.substring(3,5) == 2)
+
+            //filter for a YEAR
+            //if(whichArray[i].date.substring(6,10) == 2010)
+
+            //filter for MULTIPLE YEARS
+            //if(whichArray[i].date.substring(6,10) == 2019 || whichArray[i].date.substring(6,10) == 2020)
+
+            //filter for MONTH and YEAR
+            //if(whichArray[i].date.substring(0,2) == 2 && whichArray[i].date.substring(6,10) == 2020)
+
+            //You can replace the if statement below,
+            //with one of the options above.
+            if(whichArray) //shows all items
+            {
+                //TYPE OF ELEMENT TO CREATE, div
+                let ourDiv = document.createElement("div");
+
+                //POSITION
+                ourDiv.style.position = "absolute";
+                ourDiv.style.left = theX +'px';
+                ourDiv.style.top = theY + 'px';
+
+                //SIZE
+                ourDiv.style.width = sizeX +'px';
+                ourDiv.style.height = sizeY +'px';
+
+                //APPEARANCE
+                ourDiv.style.color = "white";
+                ourDiv.style.zIndex = "10";
+                ourDiv.style.fontFamily = "exo";
+                ourDiv.style.fontWeight = "bold";
+                ourDiv.style.fontSize = "medium";
+                ourDiv.style.background = "black";
+                ourDiv.style.textAlign = "center";
+                ourDiv.style.border = "solid 2px rgba(100,100,255,1.0)";
+
+                //CONTENT
+                ourDiv.innerHTML = whichArray[i].theHtml;
+
+                //ADD CONTENT TO THE PAGE
+                document.body.append(ourDiv);  
+
+                //COLUMNS ACROSS
+                theX = theX + sizeX; 
+            }
+        }
+    }
+}
+
+//The First Row yPos starts at 80px from the top of the screen
+let yPos = 80; 
+
+//Container for the Rows of Tools and auto positions based on yPos
+function contentContainer1()
+{
+    let theRowsOfTools = 
+    [
+        //CALCULATION ROW
+        function(){ createTheRow(100, yPos, 200, 275, theData, 'calculation', 'investigations') },
+        //theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2
+
+        //CONVERSION ROW - Distance
+        function(){ createTheRow(100, yPos, 200, 275, theData, 'conversion', 'distance') },
+        //theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2
+
+        //CONVERSION ROW - Speed
+        function(){ createTheRow(100, yPos, 200, 275, theData, 'conversion', 'speed') },
+        //theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2
+
+        //INFORMATION ROW
+        function(){ createTheRow(100, yPos, 200, 275, theData, 'info', 'any') },
+        //theX, theY, sizeX, sizeY, whichArray, criteria1, criteria2
+    ];
+
+    //Positions the Rows with 300px vertical space between them
+    for (i = 0; i < theRowsOfTools.length; i++)
+    {
+        theRowsOfTools[i]();
+        yPos = yPos + 300;
+    }
+}
+
+/*
+//Manual Positioning of the Tools can be done as shown below
+function whenLoaded()
+{ 
+    createTheRow(100, 100, 200, 275, theData, 'investigations', 'calculation');
+     //theX, theY, sizeX, sizeY, whichArray, number, criteria1, criteria2
+
+    createTheRow(100, 400, 200, 275, theData, 'info', 'any');
+    //theX, theY, sizeX, sizeY, whichArray, number, criteria1, criteria2
+}
+*/
+
+</script>
+</head>
+
+<body onload = "contentContainer1();">
+
+<center>
+    <div class = "theDedication">Dedicated to God the Father</div>
+    <div class = "theTitle">TOPALIAN JAVASCRIPT TOOLS CREATOR</div>
+</center>
+
+</body>
+</html>
